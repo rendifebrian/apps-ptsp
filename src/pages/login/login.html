@@ -1,0 +1,23 @@
+<ion-content>
+
+	<div class="wrapper-login">
+
+		<h1 ion-text text-center class="login-h1">Login</h1>
+
+		<form #form="ngForm" (ngSubmit)="login(form)">
+			
+			<ion-item id="username-item">
+				<ion-label stacked>Email</ion-label>
+				<ion-input name="email" type="text" ngModel required></ion-input>
+			</ion-item>
+
+			<ion-item id="password-item">
+				<ion-label stacked>Password</ion-label>
+				<ion-input name="password" type="password" ngModel required></ion-input>
+			</ion-item>
+
+			<button ion-button size="large" type="submit" [disabled]="form.invalid" full>Login</button>
+		</form>
+	
+	</div>
+</ion-content>

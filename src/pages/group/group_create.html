@@ -1,0 +1,37 @@
+<ion-header>
+	<ion-navbar color="secondary">
+		<ion-buttons left>
+			<button ion-button icon-only (click)="dismiss()" class="my-style-for-modal">
+				<ion-icon name="arrow-back"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-title *ngIf="page == 'create'">Create Data Group</ion-title>
+		<ion-title *ngIf="page == 'edit'">Edit Data Group</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+	<form [formGroup]="createForm">
+		<ion-list>
+
+			<ion-item>
+				<ion-label stacked>Nama Group</ion-label>
+				<ion-input type="text" [(ngModel)]="data.groups_name" formControlName="groups_name"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label stacked>Deskripsi</ion-label>
+				<ion-input type="text" [(ngModel)]="data.groups_description" formControlName="groups_description"></ion-input>
+			</ion-item>
+
+		</ion-list>
+	</form>
+
+</ion-content>
+
+<ion-footer>
+	<ion-toolbar color="{{ (!createForm.valid) ? 'danger' : 'secondary' }}">
+		<button ion-button [disabled]="!createForm.valid" clear color="light" full (click)="storeData()">Save</button>
+	</ion-toolbar>
+</ion-footer>

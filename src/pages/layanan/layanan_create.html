@@ -1,0 +1,63 @@
+<ion-header>
+	<ion-navbar color="secondary">
+		<ion-buttons left>
+			<button ion-button icon-only (click)="dismiss()" class="my-style-for-modal">
+				<ion-icon name="arrow-back"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-title *ngIf="page == 'create'">Create Data Layanan</ion-title>
+		<ion-title *ngIf="page == 'edit'">Edit Data Layanan</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+	<form [formGroup]="createForm">
+		<ion-list>
+
+			<ion-item>
+				<ion-label stacked>Nama Layanan</ion-label>
+				<ion-input type="text" [(ngModel)]="data.layanan_name" formControlName="layanan_name"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label stacked>Durasi Layanan</ion-label>
+				<ion-input type="text" [(ngModel)]="data.layanan_durasi" formControlName="layanan_durasi"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label stacked>Satuan Durasi Layanan</ion-label>
+				<ion-input type="text" [(ngModel)]="data.layanan_satuan_durasi" formControlName="layanan_satuan_durasi"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label stacked>Biaya Layanan</ion-label>
+				<ion-input type="text" [(ngModel)]="data.layanan_biaya" formControlName="layanan_biaya"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label stacked>Status Layanan</ion-label>
+				<ion-input type="text" [(ngModel)]="data.layanan_status" formControlName="layanan_status"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label stacked>Jenis Layanan</ion-label>
+				<ion-input type="hidden" [(ngModel)]="data.layanan_jenis_id" formControlName="layanan_jenis_id"></ion-input>
+				<ion-input type="text" [(ngModel)]="layanan_jenis_id_label" [ngModelOptions]="{standalone:true}" readonly (click)="select2Modal('layanan_jenis')"></ion-input>
+			</ion-item>
+
+			<ion-item>
+					<ion-label stacked>Output Layanan</ion-label>
+					<ion-input type="hidden" [(ngModel)]="data.layanan_output_id" formControlName="layanan_output_id"></ion-input>
+					<ion-input type="text" [(ngModel)]="layanan_output_id_label" [ngModelOptions]="{standalone:true}" readonly (click)="select2Modal('layanan_output')"></ion-input>
+				</ion-item>
+		</ion-list>
+	</form>
+
+</ion-content>
+
+<ion-footer>
+	<ion-toolbar color="{{ (!createForm.valid) ? 'danger' : 'secondary' }}">
+		<button ion-button [disabled]="!createForm.valid" clear color="light" full (click)="storeData()">Save</button>
+	</ion-toolbar>
+</ion-footer>

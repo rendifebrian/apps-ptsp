@@ -1,0 +1,48 @@
+<ion-header>
+	<ion-navbar color="secondary">
+		<ion-buttons left>
+			<button ion-button icon-only (click)="viewCtrl.dismiss()" class="my-style-for-modal">
+				<ion-icon name="arrow-back"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-title *ngIf="page == 'create'">Create Data User</ion-title>
+		<ion-title *ngIf="page == 'edit'">Edit Data User</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<form [formGroup]="userForm">
+		<ion-list>
+			<ion-item>
+				<ion-label stacked>Nama User</ion-label>
+				<ion-input type="text" [(ngModel)]="nama_user" formControlName="nama_user"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label stacked>NIP</ion-label>
+				<ion-input type="text" [(ngModel)]="nip" formControlName="nip"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label stacked>Unit Kerja</ion-label>
+				<ion-input type="text" [(ngModel)]="unit_kerja" formControlName="unit_kerja"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label stacked>Kata Sandi</ion-label>
+				<ion-input type="text" [(ngModel)]="kata_sandi" formControlName="kata_sandi"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label stacked>Status User</ion-label>
+				<ion-select [(ngModel)]="status_user" formControlName="status_user">
+					<ion-option value="Admin">Admin</ion-option>
+					<ion-option value="BO">BO</ion-option>
+					<ion-option value="FO">FO</ion-option>
+				</ion-select>
+			</ion-item>
+		</ion-list>
+	</form>
+</ion-content>
+
+<ion-footer class="footer-save-btn">
+	<ion-toolbar color="primary">
+		<button ion-button size="large" type="submit" full (click)="storeData()">Save Data</button>
+	</ion-toolbar>
+</ion-footer>

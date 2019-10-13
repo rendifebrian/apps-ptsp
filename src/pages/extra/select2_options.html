@@ -1,0 +1,95 @@
+<ion-header>
+	<ion-navbar color="secondary">
+			<ion-buttons left>
+				<button ion-button icon-only (click)="dismiss()" class="my-style-for-modal">
+					<ion-icon name="arrow-back"></ion-icon>
+				</button>
+			</ion-buttons>
+		<ion-title text-center>
+			Daftar {{ title_module }}
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ng-container *ngIf="from_module == 'penyelesaian_layanan'; else InstansiOrg">
+		<ion-list>
+			<ion-item (click)="setDataOption('Kw-19-19010200002')">
+				<div style="float: left">
+					<h4><b>Kw-19-19010200002</b></h4>
+					<small style="display:block">No . 123</small>
+					<small style="display:block">27-01-2019</small>
+				</div>
+				<div style="float: right">
+					<small style="display:block">Drs. H. Hurma</small>
+					<small style="display:block">26-01-2019</small>
+					<small style="display:block">Proses</small>
+				</div>
+			</ion-item>
+			<ion-item (click)="setDataOption('ASD-123-19010200002')">
+				<div style="float: left">
+					<h4><b>ASD-123-19010200002</b></h4>
+					<small style="display:block">No . 123</small>
+					<small style="display:block">27-01-2019</small>
+				</div>
+				<div style="float: right">
+					<small style="display:block">Drs. H. Hurma</small>
+					<small style="display:block">26-01-2019</small>
+					<small style="display:block">Proses</small>
+				</div>
+			</ion-item>
+		</ion-list>
+	</ng-container>
+	<ng-template #InstansiOrg>
+		<ng-container *ngIf="from_module == 'instansi_org'; else layananJenis">
+			<ion-list>
+				<ion-item *ngFor="let list of list_data" (click)="dismiss(list.organisasi_name, list.organisasi_id)">
+					<ion-thumbnail item-left>
+						<img src="assets/images/instansi.png"/>
+					</ion-thumbnail>
+					{{ list.organisasi_name }}
+					<!-- <p>Induk : Kementrian Agama</p> -->
+				</ion-item>
+			</ion-list>
+		</ng-container>
+	</ng-template>
+	<ng-template #layananJenis>
+		<ng-container *ngIf="from_module == 'layanan_jenis'; else layananOutput">
+			<ion-list>
+				<ion-item *ngFor="let list of list_data" (click)="dismiss(list.layanan_jenis_name, list.layanan_jenis_id)">
+					<ion-thumbnail item-left>
+						<img src="assets/images/layanan.png"/>
+					</ion-thumbnail>
+					{{ list.layanan_jenis_name }}
+					<!-- <p>Induk : Kementrian Agama</p> -->
+				</ion-item>
+			</ion-list>
+		</ng-container>
+	</ng-template>
+	<ng-template #layananOutput>
+		<ng-container *ngIf="from_module == 'layanan_output'; else layanan">
+			<ion-list>
+				<ion-item *ngFor="let list of list_data" (click)="dismiss(list.layanan_output_name, list.layanan_output_id)">
+					<ion-thumbnail item-left>
+						<img src="assets/images/layanan.png"/>
+					</ion-thumbnail>
+					{{ list.layanan_output_name }}
+					<!-- <p>Induk : Kementrian Agama</p> -->
+				</ion-item>
+			</ion-list>
+		</ng-container>
+	</ng-template>
+	<ng-template #layanan>
+		<ng-container *ngIf="from_module == 'layanan'; else selanjutnya">
+			<ion-list>
+				<ion-item *ngFor="let list of list_data" (click)="dismiss(list.layanan_name, list.layanan_id)">
+					<ion-thumbnail item-left>
+						<img src="assets/images/layanan.png"/>
+					</ion-thumbnail>
+					{{ list.layanan_name }}
+					<!-- <p>Induk : Kementrian Agama</p> -->
+				</ion-item>
+			</ion-list>
+		</ng-container>
+	</ng-template>
+</ion-content>

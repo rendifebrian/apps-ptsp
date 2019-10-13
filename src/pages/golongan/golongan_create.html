@@ -1,0 +1,42 @@
+<ion-header>
+	<ion-navbar color="secondary">
+		<ion-buttons left>
+			<button ion-button icon-only (click)="dismiss()" class="my-style-for-modal">
+				<ion-icon name="arrow-back"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-title *ngIf="page == 'create'">Create Data Golongan</ion-title>
+		<ion-title *ngIf="page == 'edit'">Edit Data Golongan</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+	<form [formGroup]="createForm">
+		<ion-list>
+
+			<ion-item>
+				<ion-label stacked>Golongan Kode</ion-label>
+				<ion-input type="text" [(ngModel)]="data.golongan_code" formControlName="golongan_code"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label stacked>Golongan Tingkat</ion-label>
+				<ion-input type="text" [(ngModel)]="data.golongan_tingkat" formControlName="golongan_tingkat"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label stacked>Golongan Pangkat</ion-label>
+				<ion-input type="text" [(ngModel)]="data.golongan_pangkat" formControlName="golongan_pangkat"></ion-input>
+			</ion-item>
+
+		</ion-list>
+	</form>
+
+</ion-content>
+
+<ion-footer>
+	<ion-toolbar color="{{ (!createForm.valid) ? 'danger' : 'secondary' }}">
+		<button ion-button [disabled]="!createForm.valid" clear color="light" full (click)="storeData()">Save</button>
+	</ion-toolbar>
+</ion-footer>

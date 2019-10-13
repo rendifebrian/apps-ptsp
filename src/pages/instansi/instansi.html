@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Instansi</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list>
+    <ion-item *ngFor="let list of list_data">
+      <ion-thumbnail item-left>
+        <img src="assets/images/instansi.png"/>
+      </ion-thumbnail>
+      {{ list.instansi_name }}
+      <p>Induk : {{ list.organisasi_name }}</p>
+      <ion-icon name="more" item-end (click)="optionList(list)" style="padding-right: 10px"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab right bottom>
+    <button ion-fab color="secondary" (click)="addInstansi()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+</ion-content>

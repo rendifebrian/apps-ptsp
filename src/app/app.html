@@ -1,0 +1,35 @@
+<ion-menu id="myMenu" [content]="myNav">
+	<ion-header class="menu-header-img">
+		<h2 ion-text wrap-text>PELAYANAN TERPADU SATU PINTU	(PTSP)</h2>
+		<span><ion-icon item-start name="contact"></ion-icon> Admin</span>
+		<small>Apps Version : v1.0.0</small>
+	</ion-header>
+      
+	<ion-content>
+		<ion-list>
+			<ion-item menuClose [class.menu-active]="active_menu == 'beranda'" class="menu-list" (click)="openPage('beranda')"><ion-icon item-start name="home"></ion-icon>Beranda</ion-item>
+			<ion-list-header>Data</ion-list-header>
+			<ion-item menuClose [class.menu-active]="active_menu == 'user'" class="menu-list" (click)="openPage('user')"><i class="material-icons icon-menu" item-start>people</i>User</ion-item>
+			<ion-item menuClose [class.menu-active]="active_menu == 'organisasi'" class="menu-list" (click)="openPage('organisasi')"><i class="material-icons icon-menu" item-start>home_work</i>Organisasi</ion-item>
+			<ion-item menuClose [class.menu-active]="active_menu == 'instansi'" class="menu-list" (click)="openPage('instansi')"><i class="material-icons icon-menu" item-start>event_seat</i>Instansi</ion-item>
+			<ion-item menuClose [class.menu-active]="active_menu == 'golongan'" class="menu-list" (click)="openPage('golongan')"><i class="material-icons icon-menu" item-start>dns</i>Golongan</ion-item>
+			<ion-item menuClose [class.menu-active]="active_menu == 'group'" class="menu-list" (click)="openPage('group')"><i class="material-icons icon-menu" item-start>group</i>Group</ion-item>
+		</ion-list>
+		<ion-list>
+			<ion-list-header>Layanan</ion-list-header>
+			<ion-item menuClose [class.menu-active]="active_menu == 'layanan'" class="menu-list" (click)="openPage('layanan')"><ion-icon item-start name="cube"></ion-icon>Layanan</ion-item>
+			<ion-item menuClose [class.menu-active]="active_menu == 'layanan_jenis'" class="menu-list" (click)="openPage('layanan_jenis')"><ion-icon item-start name="list-box"></ion-icon>Jenis Layanan</ion-item>
+			<ion-item menuClose [class.menu-active]="active_menu == 'layanan_output'" class="menu-list" (click)="openPage('layanan_output')"><ion-icon item-start name="list"></ion-icon>Output Layanan</ion-item>
+			<ion-item menuClose [class.menu-active]="active_menu == 'layanan_syarat'" class="menu-list" (click)="openPage('layanan_syarat')"><ion-icon item-start name="open"></ion-icon>Syarat Layanan</ion-item>
+			<ion-item menuClose class="menu-list"><ion-icon item-start name="logo-buffer"></ion-icon>Olah Data Layanan</ion-item>
+		</ion-list>
+		<ion-list>
+			<ion-list-header>Lain-Lain</ion-list-header>
+			<ion-item menuClose class="menu-list"><ion-icon item-start name="settings"></ion-icon>Pengaturan</ion-item>
+			<ion-item class="menu-list" (click)=logout()><ion-icon item-start name="power"></ion-icon>Logout</ion-item>
+		</ion-list>
+	</ion-content>
+      
+</ion-menu>
+      
+<ion-nav [root]="rootPage" #myNav swipBackEnabled="false" main name="app" ></ion-nav>

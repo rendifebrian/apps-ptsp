@@ -1,0 +1,73 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+.menu-header-img{
+	height: 20vh; 
+	background-image: url('/assets/images/background_menu.jpg'); 
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+	text-align: center;
+}
+
+.menu-header-img span {
+	float: left;
+	padding: 15px 10px;
+}
+
+.menu-header-img small {
+	float: right;
+	padding: 15px 10px;
+}
+
+.menu-list:active{
+	background-color: #ececec;
+}
+
+.menu-active{
+	background-color: #29ffb8;
+}
+
+.box-home{
+	border: 1px solid #999;
+	text-align: center;
+	padding: 40px;
+}
+
+.box-home:active{
+	background-color: #ececec;
+}
+
+.box-home #icon-box{
+	font-size: 50px !important;
+	color: green;
+}
+
+.footer-save-btn{
+	height: 50px;
+}
+
+.item-cover {
+    width: unset !important;
+    height: unset !important;
+ }
+
+ .icon-menu {
+	 padding-right: 23px;
+ }

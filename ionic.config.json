@@ -1,0 +1,7 @@
+{
+  "name": "ptsp-kanwil",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

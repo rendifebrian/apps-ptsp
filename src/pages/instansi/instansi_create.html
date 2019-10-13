@@ -1,0 +1,61 @@
+<ion-header>
+	<ion-navbar color="secondary">
+		<ion-buttons left>
+			<button ion-button icon-only (click)="dismiss()" class="my-style-for-modal">
+				<ion-icon name="arrow-back"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-title *ngIf="page == 'create'">Create Data Instansi</ion-title>
+		<ion-title *ngIf="page == 'edit'">Edit Data Instansi</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+	<form [formGroup]="createForm">
+		<ion-list>
+			<ion-item>
+				<ion-label stacked>Induk Organisasi</ion-label>
+				<ion-input type="hidden" [(ngModel)]="data.organisasi_id" formControlName="organisasi_id"></ion-input>
+				<ion-input type="text" [(ngModel)]="organisasi_id_label" [ngModelOptions]="{standalone:true}" readonly (click)="select2Modal('instansi_org')"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label stacked>Nama Instansi</ion-label>
+				<ion-input type="text" [(ngModel)]="data.instansi_name" formControlName="instansi_name"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label stacked>Alamat Instansi</ion-label>
+				<ion-input type="text" [(ngModel)]="data.instansi_address" formControlName="instansi_address"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label stacked>Telepon</ion-label>
+				<ion-input type="text" [(ngModel)]="data.instansi_telp" formControlName="instansi_telp"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label stacked>Faksimili</ion-label>
+				<ion-input type="text" [(ngModel)]="data.instansi_faks" formControlName="instansi_faks"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label stacked>Website</ion-label>
+				<ion-input type="text" [(ngModel)]="data.instansi_web" formControlName="instansi_web"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label stacked>Email</ion-label>
+				<ion-input type="text" [(ngModel)]="data.instansi_email" formControlName="instansi_email"></ion-input>
+			</ion-item>
+		</ion-list>
+	</form>
+
+</ion-content>
+
+<ion-footer>
+	<ion-toolbar color="{{ (!createForm.valid) ? 'danger' : 'secondary' }}">
+		<button ion-button [disabled]="!createForm.valid" clear color="light" full (click)="storeData()">Save</button>
+	</ion-toolbar>
+</ion-footer>
